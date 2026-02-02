@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 
-function DisplayProducts({ products, quantities, onQuantityChange }) {
+function DisplayProducts({ products,
+  quantities,
+  onQuantityChange,
+  sortType,
+  onSortChange }) {
     const [show, setShow] = useState(false);
     const [showImge, setShowImge] = useState(null);
 
@@ -28,6 +32,20 @@ function DisplayProducts({ products, quantities, onQuantityChange }) {
       borderRadius: '6px',
   
     }}>
+      <div className="d-flex justify-content-center my-3">
+  <label className="me-2 fw-bold">Sort Price By:</label>
+  <select
+    value={sortType}
+    onChange={onSortChange}
+    className="form-select form-select-sm"
+    style={{ width: "150px" }}
+  >
+    <option value="normal">Normal</option>
+    <option value="lowest">Lowest</option>
+    <option value="highest">Highest</option>
+  </select>
+</div>
+
 {products.map((product) => (
   <div
     key={product.id}
@@ -35,7 +53,16 @@ function DisplayProducts({ products, quantities, onQuantityChange }) {
   >
     {/* Product info */}
     <div className="me-4" style={{ width: "140px" }}>
-      <div className="mb-2">{product.name}</div>
+<div
+  className="mb-2 d-flex justify-content-between align-items-center"
+  style={{ width: "140px" }}
+>
+  <span>{product.name}</span>
+  <span style={{ color: "red", fontWeight: "bold" }}>
+    ${product.price}
+  </span>
+</div>
+
       <img
         src={product.image}
         alt={product.name}

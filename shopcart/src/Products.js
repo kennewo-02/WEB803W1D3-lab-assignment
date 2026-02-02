@@ -11,8 +11,8 @@ const products = [
         },
         {
           id: 2,
-          name: "Apple iWatch",
           image: "/products/iwatch.jpg",
+                    name: "Apple iWatch",
             price: 199,
             ratings: '3.5',
             value: 0
@@ -27,8 +27,8 @@ const products = [
         },
         {
           id: 4,
-          name: "Mens Wallet",
           image: "/products/wallet.jpg",
+                    name: "Mens Wallet",
             price: 48,
             ratings: '4.5',
             value: 0
