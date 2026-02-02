@@ -8,6 +8,10 @@ import productsData from "./Products";
 import Navbar from "./Navbar";
 import DisplayProducts from "./DisplayProducts";
 import Cart from "./Cart";
+import SignIn from "./SignIn";
+import Checkout from "./Checkout";
+
+
 
 class App extends React.Component {
   constructor(props) {
@@ -41,27 +45,34 @@ products: productsData,
     return (
       <Router>
         <Navbar totalItems={this.getTotalItems()} />
-        <Routes>
-          <Route 
-            path="/" 
-            element={
-              <DisplayProducts 
-                products={products} 
-                quantities={quantities} 
-                onQuantityChange={this.handleQuantityChange} 
-              />
-            } 
-          />
-          <Route 
-            path="/cart" 
-            element={
-              <Cart 
-                products={products} 
-                quantities={quantities} 
-              />
-            } 
-          />
-        </Routes>
+<Routes>
+  <Route
+    path="/"
+    element={
+      <DisplayProducts 
+        products={products} 
+        quantities={quantities} 
+        onQuantityChange={this.handleQuantityChange} 
+      />
+    }
+  />
+  <Route
+    path="/cart"
+    element={<Cart products={products} quantities={quantities} />}
+  />
+  <Route path="/signin" element={<SignIn />} />
+  <Route
+    path="/checkout"
+    element={
+      this.getTotalItems() > 0 ? (
+        <Checkout products={products} quantities={quantities} />
+      ) : (
+        <SignIn />
+      )
+    }
+  />
+</Routes>
+
       </Router>
     );
   }

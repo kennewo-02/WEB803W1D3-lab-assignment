@@ -153,3 +153,37 @@
   );
 }
 
+/* Facebook login button */
+.facebook-btn {
+  width: 45%;
+  max-width: 500px;
+  height: 60px;
+  background-color: #4f6ebd; /* Facebook blue */
+  color: #fff;
+  border: none;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+/* Facebook "f" */
+.facebook-icon {
+  font-size: 28px;
+  font-weight: 700;
+  margin-right: 20px;
+}
+
+/* Text alignment */
+.facebook-text {
+  flex-grow: 1;
+  text-align: center;
+}
+
+/* Optional hover */
+.facebook-btn:hover {
+  background-color: #3f5aa6;
+}
